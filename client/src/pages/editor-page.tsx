@@ -1,4 +1,6 @@
+import { useEffect, useState } from 'react'
 import { createDesktopApiClient } from '../api/client'
+import { getDocuments } from '../api/documents'
 import { LayoutShell } from '../components/layout-shell'
 import { BlockNoteEditor } from '../features/editor/blocknote-editor'
 import type { EditorDocument } from '../lib/models/document'
@@ -14,9 +16,34 @@ const apiClient = createDesktopApiClient()
 const runtime = detectRuntime()
 
 export function EditorPage() {
+  const [document, setDocument] = useState<EditorDocument>(currentDocument)
+
+  useEffect(() => {
+    let cancelled = false
+
+    async function loadDocuments() {
+      try {
+        const response = await getDocuments()
+        const firstDocument = response.data[0]
+
+        if (!cancelled && firstDocument) {
+          setDocument(firstDocument)
+        }
+      } catch (error) {
+        console.error('Failed to load documents', error)
+      }
+    }
+
+    void loadDocuments()
+
+    return () => {
+      cancelled = true
+    }
+  }, [])
+
   return (
     <LayoutShell
-      document={currentDocument}
+      document={document}
       endpoint={apiClient.baseUrl}
       runtime={runtime}
     >
