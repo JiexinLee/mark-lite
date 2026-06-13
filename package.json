@@ -1,0 +1,21 @@
+{
+  "name": "mark-lite-workspace",
+  "private": true,
+  "packageManager": "pnpm@10.33.0",
+  "scripts": {
+    "dev": "node ./scripts/dev.mjs",
+    "dev:electron": "pnpm --filter @mark-lite/electron dev",
+    "dev:server": "pnpm --filter @mark-lite/server dev",
+    "start": "pnpm dev",
+    "start:electron": "pnpm --filter @mark-lite/electron start",
+    "start:server": "pnpm --filter @mark-lite/server start",
+    "build": "node ./scripts/build.mjs",
+    "build:electron": "pnpm --filter @mark-lite/electron build",
+    "build:server": "pnpm --filter @mark-lite/server build",
+    "lint": "node ./scripts/lint.mjs",
+    "lint:electron": "pnpm --filter @mark-lite/electron lint",
+    "typecheck": "node ./scripts/typecheck.mjs",
+    "typecheck:electron": "pnpm --filter @mark-lite/electron exec tsc -b",
+    "typecheck:server": "pnpm --filter @mark-lite/server typecheck"
+  }
+}
