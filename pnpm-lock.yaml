@@ -149,10 +149,10 @@ importers:
         version: 6.0.3
 
   packages/ai-workspace:
-    dependencies:
-      ai:
-        specifier: ^6.0.204
-        version: 6.0.204(zod@4.4.3)
+    devDependencies:
+      typescript:
+        specifier: ^6.0.3
+        version: 6.0.3
 
   packages/auth: {}
 
