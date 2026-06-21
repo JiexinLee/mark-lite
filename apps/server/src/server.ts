@@ -1,8 +1,10 @@
 import { createApp } from './app'
-import { env } from './config/env'
+import { aiWorkspaceRuntimeEnv } from '@mark-lite/ai-workspace'
 
 const app = createApp()
 
-app.listen(env.PORT, () => {
-  console.log(`mark-lite server running on http://localhost:${env.PORT}`)
+app.listen(aiWorkspaceRuntimeEnv.PORT, () => {
+  console.log(
+    `mark-lite server running on http://localhost:${aiWorkspaceRuntimeEnv.PORT}`,
+  )
 })

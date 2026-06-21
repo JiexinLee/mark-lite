@@ -1,6 +1,6 @@
 import type { NextFunction, Request, Response } from 'express'
+import { aiWorkspaceRuntimeEnv } from '@mark-lite/ai-workspace'
 import { randomUUID } from 'node:crypto'
-import { env } from '../config/env'
 
 export type RequestContext = {
   requestId: string
@@ -14,7 +14,7 @@ export function attachRequestContext(
 ) {
   req.context = {
     requestId: randomUUID(),
-    currentUserId: req.header('x-user-id') || env.DEFAULT_USER_ID,
+    currentUserId: req.header('x-user-id') || aiWorkspaceRuntimeEnv.DEFAULT_USER_ID,
   }
 
   next()

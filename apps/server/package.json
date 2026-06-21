@@ -15,11 +15,11 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
+    "@mark-lite/ai-workspace": "workspace:*",
     "ai": "^6.0.204",
     "compression": "^1.8.1",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.6",
-    "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "helmet": "^8.2.0",
     "morgan": "^1.11.0",

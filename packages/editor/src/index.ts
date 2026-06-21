@@ -1,5 +1,5 @@
 export { BlockNoteEditor } from './blocknote-editor'
-export type { BlockNoteEditorProps } from './blocknote-editor'
+export type { BlockNoteEditorProps, EditorAIConfig } from './blocknote-editor'
 export {
   blocksToPlainText,
   createEmptyDocument,
