@@ -5,11 +5,13 @@ import type { AIWorkspaceActionKey, AIWorkspacePrompt } from "../types";
 export type BuildAIWorkspacePromptInput = {
   actionKey: AIWorkspaceActionKey | string;
   context: AIWorkspaceDocumentContext;
+  instruction?: string;
 };
 
 export function buildAIWorkspacePrompt({
   actionKey,
   context,
+  instruction,
 }: BuildAIWorkspacePromptInput): AIWorkspacePrompt {
   const action = getAIWorkspaceActionByKey(actionKey);
 
@@ -43,6 +45,10 @@ export function buildAIWorkspacePrompt({
       .join("\n\n");
 
     sections.push(`RAG Snippets:\n${snippets}`);
+  }
+
+  if (instruction) {
+    sections.push(`User Instruction:\n${instruction}`);
   }
 
   return {

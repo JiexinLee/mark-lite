@@ -6,4 +6,5 @@ export type AIWorkspaceRequest = {
   documentId: string;
   context: AIWorkspaceDocumentContext;
   settings: AIWorkspaceSettings;
+  instruction?: string;
 };
