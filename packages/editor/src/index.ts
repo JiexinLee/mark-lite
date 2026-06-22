@@ -1,10 +1,14 @@
-export { BlockNoteEditor } from './blocknote-editor'
-export type { BlockNoteEditorProps, EditorAIConfig } from './blocknote-editor'
-export {
-  blocksToPlainText,
-  createEmptyDocument,
-  createHeadingBlock,
-  createParagraphBlock,
-  createTextContent,
-} from './document-conversion'
-export type { EditorBlock, EditorBlockText, EditorDocument } from './types/document'
+export { DocumentEditor } from "./blocknote/document-editor";
+export { BlockNoteEditor } from "./blocknote-editor";
+export { createEmptyDocument } from "./document";
+
+export type {
+  BlockNoteEditorProps,
+  DocumentEditorAIConfig,
+  DocumentEditorProps,
+  EditorBlock,
+  EditorDocumentContent,
+} from "./types";
+
+export type { EditorDocument } from "./types/document";
+export type { EditorAIConfig } from "./blocknote-editor";

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import {
-  BlockNoteEditor,
+  DocumentEditor,
   createEmptyDocument,
   type EditorDocument,
 } from '@mark-lite/editor'
@@ -90,7 +90,11 @@ export function EditorPage() {
         </div>
 
         <div className="editor-surface__body">
-          <BlockNoteEditor aiConfig={{ baseUrl: apiClient.baseUrl }} />
+          <DocumentEditor
+            documentId={document.id}
+            documentTitle={document.title}
+            ai={{ baseUrl: apiClient.baseUrl }}
+          />
         </div>
       </section>
     </LayoutShell>
